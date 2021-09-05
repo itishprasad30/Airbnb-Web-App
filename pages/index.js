@@ -9,6 +9,9 @@ import Smallcard from "../components/Smallcard";
 import Image from "next/dist/client/image";
 
 export default function Home({ data, cardsData, bigcardData }) {
+  const gotoTab = () => {
+    window.open("https://github.com/itishprasad30");
+  };
   return (
     <div className="">
       <Head>
@@ -74,6 +77,21 @@ export default function Home({ data, cardsData, bigcardData }) {
       </main>
 
       <Footer />
+      <section className="bg-green-400 text-lg items-center p-1 mb-2 sm:flex-row flex-col flex justify-center  ">
+        <h1 className=" text-black  text-xl">
+          Developed With ❣ by{" "}
+          <a
+            // href="https://github.com/itishprasad30"
+            className="hover:cursor-pointer hover:bg-red-500 rounded-md px-2 py-1  hover:text-gray-50 inline-block transform hover:scale-110 hover:-rotate-3 transition duration-300"
+            onClick={gotoTab}
+          >
+            Itish Prasad
+          </a>
+        </h1>
+        <h1 className=" text-sm text text-white text-right ">
+          &copy; Itish Prasad
+        </h1>
+      </section>
     </div>
   );
 }
