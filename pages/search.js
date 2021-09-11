@@ -3,6 +3,8 @@ import { useRouter } from "next/dist/client/router";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
+import Head from "next/head";
 
 function search({ searchResults }) {
   const router = useRouter();
@@ -12,10 +14,14 @@ function search({ searchResults }) {
   const formartedEndDate = format(new Date(endDate), "dd MMMM yy");
   const range = `${formartedStartDate} - ${formartedEndDate}`;
 
-  console.log(router.query);
+  // console.log(router.query);
 
   return (
     <div>
+      <Head>
+        <title>Search page -Airbnb </title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header placeholder={`${location} | ${range} | ${noOfguest} guests`} />
       <main className="flex">
         <section className="flex-grow pt-14 px-6">
@@ -50,6 +56,10 @@ function search({ searchResults }) {
               />
             ))}
           </div>
+        </section>
+
+        <section className="hidden md:inline-flex md:min-w-[600px]">
+          <Map searchResults={searchResults} />
         </section>
       </main>
       <Footer />
